@@ -1,0 +1,153 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "校园----主页"
+			}
+		}
+        ,{
+            "path" : "components/find/find",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发现页面",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "components/message/message",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "消息页面",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "components/mine/mine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/attendance/attendance",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "宝宝考勤",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/car/car",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "校车",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/curriculum/curriculum",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "课程表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/healthy/healthy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "健康",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mailList/mailList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "通讯录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/more/more",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "更多",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/recipes/recipes",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "宝宝食谱",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/sing/sing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "儿歌",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"color":"#cdd1d4",
+		"selectedColor":"#ff5a40",
+		"borderStyle":"white",
+		"backgroundColor":"#FFFFFF",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"iconPath":"static/tabbarImgs/ic_tab_school.png",
+				"selectedIconPath":"static/tabbarImgs/ic_tab_school_select.png",
+				"text":"校园"
+			},
+			{
+				"pagePath":"components/find/find",
+				"iconPath":"static/tabbarImgs/tabbarImgs/ic_tab_find.png",
+				"selectedIconPath":"static/tabbarImgs/ic_tab_find_select.png",
+				"text":"发现"
+			},
+			{
+				"pagePath":"components/message/message",
+				"iconPath":"static/tabbarImgs/tabbarImgs/ic_tab_message.png",
+				"selectedIconPath":"static/tabbarImgs/ic_tab_message_select.png",
+				"text":"消息"
+			},
+			{
+				"pagePath":"components/mine/mine",
+				"iconPath":"static/tabbarImgs/tabbarImgs/ic_tab_mine.png.png",
+				"selectedIconPath":"static/tabbarImgs/ic_tab_mine_select.png",
+				"text":"我"
+			}
+		],
+		"midButton":{
+			"width":"84rpx",
+			"height":"84rpx",
+			"iconPath":"static/tabbarImgs/tabbarImgs/ic_tab_more_select.png",
+			"iconWidth":"70rpx"
+		}
+	}
+}
