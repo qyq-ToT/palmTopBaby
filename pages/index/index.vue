@@ -46,35 +46,35 @@
 				// 导航栏数据组
 				navigationList:[
 					{
-						src:"../../static/tabbarImgs/attendance.png",
+						src:"../../static/index_img/attendance.png",
 						tit:"宝宝考勤"
 					},
 					{
-						src:"../../static/tabbarImgs/recipes.png",
+						src:"../../static/index_img/recipes.png",
 						tit:"宝宝食谱"
 					},
 					{
-						src:"../../static/tabbarImgs/car.png",
+						src:"../../static/index_img/car.png",
 						tit:"校车"
 					},
 					{
-						src:"../../static/tabbarImgs/healthy.png",
+						src:"../../static/index_img/healthy.png",
 						tit:"健康"
 					},
 					{
-						src:"../../static/tabbarImgs/mailList.png",
+						src:"../../static/index_img/mailList.png",
 						tit:"通讯录"
 					},
 					{
-						src:"../../static/tabbarImgs/curriculum.png",
+						src:"../../static/index_img/curriculum.png",
 						tit:"课程表"
 					},
 					{
-						src:"../../static/tabbarImgs/sing.png",
+						src:"../../static/index_img/sing.png",
 						tit:"儿歌"
 					},
 					{
-						src:"../../static/tabbarImgs/more.png",
+						src:"../../static/index_img/more.png",
 						tit:"更多"
 					}
 				]
