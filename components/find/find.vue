@@ -33,7 +33,7 @@
 		data() {
 			return {
 				swiperNavList:["精选","班级动态","短视频","我的关注"],
-				swiperCurrent:2
+				swiperCurrent:0
 			}
 		},
 		methods: {
@@ -60,14 +60,19 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		// position: relative;
 		.swiperNav {
+			position: fixed;
+			z-index: 123;
 			width: 100%;
 			height: 7%;
 			// border: 1px solid #007AFF;
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			box-shadow: -2rpx 0 10rpx 2rpx #808080;
+			box-shadow: -2rpx 0 15rpx 2rpx #808080;
+			margin-bottom: 6rpx;
+			background-color: #FFFFFF;
 			.snItem{
 				font-size: 36rpx;
 			}
@@ -78,7 +83,7 @@
 		.swiperRow{
 			flex: 1;
 			width: 100%;
-			border: 1px solid #007AFF;
+			// border: 1px solid #007AFF;
 		}
 	}
 </style>

@@ -13,7 +13,8 @@
 		,{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "校园----主页"
+				"navigationBarTitleText": "校园----主页",
+				"navigationStyle":"custom"
 			}
 		}
         ,{
@@ -157,6 +158,33 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/leave/leave",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "请假",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/introduction/introduction",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "幼儿园简介",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/pay/pay",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "缴费",
                 "enablePullDownRefresh": false
             }
             
