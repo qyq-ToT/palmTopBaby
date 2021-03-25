@@ -2,12 +2,27 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			uni.onTabBarMidButtonTap(()=>{
+				uni.navigateTo({
+					url:'../release/release?'+"123",
+					success: (res) => {
+						console.log(res)
+					},
+					fail: (res) => {
+						console.log(res)
+					}
+				})
+			})
 		},
 		onShow: function() {
 			console.log('App Show')
+			
 		},
 		onHide: function() {
 			console.log('App Hide')
+		},
+		onLoad:function(){
+			
 		}
 	}
 </script>

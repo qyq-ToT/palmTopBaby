@@ -164,7 +164,7 @@
 	.content {
 		font-family: "楷书";
 		width: 100%;
-		height: 100%;
+		// height: 100%;
 		background: #FFFFFF;
 		.user_business_card{
 			width: 100%;

@@ -4,8 +4,6 @@
 		    "path" : "pages/select_login/select_login",
 		    "style" :                                                                                    
 		    {
-		        "navigationBarTitleText": "登陆页面",
-		        "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
 		    }
 		    
@@ -13,7 +11,6 @@
 		,{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "校园----主页",
 				"navigationStyle":"custom"
 			}
 		}
@@ -21,8 +18,6 @@
             "path" : "components/find/find",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "发现页面",
-                "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
             
@@ -31,8 +26,7 @@
             "path" : "components/message/message",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "消息页面",
-                "enablePullDownRefresh": false
+				"navigationStyle":"custom"
             }
             
         }
@@ -40,8 +34,10 @@
             "path" : "components/mine/mine",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "我 的",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
             }
             
         }
@@ -189,6 +185,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/release/release",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "成 长 编 辑",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+            }
+            
+        }
+        ,{
+            "path" : "components/release/release",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "成 长 编 辑",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -214,6 +229,12 @@
 				"selectedIconPath":"static/tabbarImgs/ic_tab_find_select.png",
 				"text":"发现"
 			},
+			// {
+			// 	"pagePath":"components/release/release",
+			// 	"iconPath":"./static/tabbarImgs/ic_tab_more_select.png",
+			// 	"selectedIconPath":"./static/tabbarImgs/ic_tab_more_select.png",
+			// 	"text":""
+			// },
 			{
 				"pagePath":"components/message/message",
 				"iconPath":"static/tabbarImgs/ic_tab_message.png",
