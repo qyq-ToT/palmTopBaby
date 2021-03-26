@@ -16,7 +16,12 @@
 		},
 		onShow: function() {
 			console.log('App Show')
-			
+			uni.getProvider({
+				service:"oauth",
+				success: (res) => {
+					console.log(res)
+				}
+			})
 		},
 		onHide: function() {
 			console.log('App Hide')
@@ -28,6 +33,7 @@
 </script>
 
 <style lang="scss">
+	@import "uview-ui/index.scss";
 	/*每个页面公共css */
 	.uni-tabbar__item:nth-child(4){
 		margin: 0 15px;

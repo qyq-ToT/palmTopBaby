@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="mine_card">
-			<image class="mine_icon" mode="scaleToFill" src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1174701681,3917824445&fm=26&gp=0.jpg"></image>
+			<image lazy-load="true" class="mine_icon" mode="scaleToFill" src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1174701681,3917824445&fm=26&gp=0.jpg"></image>
 			<view class="mine_name">如花姑娘</view>
 		</view>
 		<view class="navToList">
