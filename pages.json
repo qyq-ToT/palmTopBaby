@@ -77,8 +77,7 @@
             "path" : "pages/curriculum/curriculum",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "课程表",
-                "enablePullDownRefresh": false
+               "navigationStyle":"custom"
             }
             
         }
@@ -193,8 +192,7 @@
             "path" : "pages/pay/pay",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "缴费",
-                "enablePullDownRefresh": false
+				"navigationStyle":"custom"
             }
             
         }

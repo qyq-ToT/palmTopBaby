@@ -234,11 +234,14 @@
 						align-items: center;
 						.cname,.addTime{
 							background: #FFFFFF;
-							height: 50%;
+							height: 60%;
 							padding: 2rpx 10rpx;
 							font-size: 26rpx;
 							border-radius: 30rpx;
 							margin: 0 10rpx;
+							display: flex;
+							justify-content: center;
+							align-items: center;
 						}
 					}
 				}

@@ -98,7 +98,7 @@
 		.loginBtn{
 			margin-top: 32rpx;
 			width: 60%;
-			height: 4%;
+			height: 6%;
 			padding: 10rpx 10rpx;
 			font-size: 40rpx;
 			color: #FFFFFF;
