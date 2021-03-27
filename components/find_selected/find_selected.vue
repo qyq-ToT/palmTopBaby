@@ -101,7 +101,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: calc(100vh*0.075);
+		// margin-top: calc(100vh*0.075);
 		overflow: scroll;
 		.selectedSwiper {
 			width: 100%;

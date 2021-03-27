@@ -1,15 +1,28 @@
 <template>
 	<view class="content">
+		<!-- 顶部导航栏 -->
 		<view class="navHead">
 			<view @click="changeContent(1)" class="navItem">
 				<view :class="navActive==1?'active':''" class="tit">通知</view>
-				<view class="prop" v-show="noticeUnread!=0">{{noticeUnread}}</view>
+				<u-badge show-zero type="error" :count="noticeUnread"></u-badge>
 			</view>
 			<view @click="changeContent(2)" class="navItem">
 				<view :class="navActive==2?'active':''" class="tit">消息</view>
-				<view class="prop">2</view>
+				<u-badge show-zero type="error" count="15"></u-badge>
 			</view>
+			<image class="drop_icon" src="../../static/message_imgs/solid_inverted_triangle.png"
+			@click="drop()" :class="dropActive?'dropActive':''"></image>
 		</view>
+		<!-- 顶部导航栏 -->
+		
+		<!-- 遮罩层以及下拉菜单 -->
+		<u-mask class="mask" :show="dropActive" :custom-style="{background: 'rgba(0, 0, 0, 0.2)'}" 
+		:duration="400" :zoom="true" @click="drop()">
+			<view class="t_drop_list">
+				<view class="d_item" v-for="(item,index) in tDropList" @click="selectDrop(index)">{{item}}</view>
+			</view>
+		</u-mask>
+		<!-- 遮罩层以及下拉菜单 -->
 		<view class="notice" v-show="navActive==1">
 			<view v-for="(item,index) in noticeLsit" class="notice_item">
 				<view class="item_content">
@@ -33,7 +46,7 @@
 			<view class="news_head">
 				<view v-for="(item,index) in newsHeadList" class="head_item">
 					<view class="icon_row">
-						<view class="prop">{{item.uread}}</view>
+						<u-badge show-zero :offset="bageOffset" type="error" :count="item.uread"></u-badge>
 						<image mode="aspectFill" class="item_icon" :src="item.src"
 						:style="index==1?'background:#FD706B':(index==2?'background:#8AE4DA':'')"></image>
 					</view>
@@ -50,7 +63,8 @@
 					</view>
 					<view class="msg_info">
 						<view class="msg_info_time">{{item.last_time}}</view>
-						<view class="msg_unread">{{item.unread_count}}</view>
+						<view class="msg_unread"
+						:class="item.unread_count>99?'bp':''">{{item.unread_count | uReadHandle}}</view>
 					</view>
 				</view>
 			</view>
@@ -62,8 +76,12 @@
 	export default {
 		data() {
 			return {
+				// 头部下拉列表激活状态
+				dropActive:false,
+				tDropList:["全部通知","普通消息","活动","投票"],
+				bageOffset:[-15,0],
 				noticeUnread:0,
-				navActive:2,
+				navActive:1,
 				noticeLsit:[
 					{
 						type:1,
@@ -137,63 +155,72 @@
 						name:"马化腾",
 						msg:"还不充钱？",
 						last_time:"00:04",
-						unread_count:"1"
+						unread_count:98
 					},
 					{
 						src:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1224304466,3911990549&fm=26&gp=0.jpg",
 						name:"马云",
 						msg:"帅哥，来淘宝逛逛呗~~~",
 						last_time:"20:21",
-						unread_count:"4"
+						unread_count:4
 					},
 					{
 						src:"https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3081424985,1797611456&fm=26&gp=0.jpg",
 						name:"王健林",
 						msg:"定个小目标，比方说:我先挣它一个亿",
 						last_time:"09:43",
-						unread_count:"12"
+						unread_count:105
 					},
 					{
 						src:"https://pic.cyol.com/img/20200810/img_964041df4d80a893a20354e9b7cde66c7d_c.jpg",
 						name:"习近平",
 						msg:"党的100大人民大会将在2021-04-01召开,请及时参加!!!",
 						last_time:"08:00",
-						unread_count:"1"
+						unread_count:1
 					},
 					{
 						src:"https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2336406242,3321157055&fm=26&gp=0.jpg",
 						name:"马化腾",
 						msg:"还不充钱？",
 						last_time:"00:04",
-						unread_count:"1"
+						unread_count:1
 					},
 					{
 						src:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1224304466,3911990549&fm=26&gp=0.jpg",
 						name:"马云",
 						msg:"帅哥，来淘宝逛逛呗~~~",
 						last_time:"20:21",
-						unread_count:"4"
+						unread_count:4
 					},
 					{
 						src:"https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3081424985,1797611456&fm=26&gp=0.jpg",
 						name:"王健林",
 						msg:"定个小目标，比方说:我先挣它一个亿",
 						last_time:"09:43",
-						unread_count:"12"
+						unread_count:105
 					},
 					{
 						src:"https://pic.cyol.com/img/20200810/img_964041df4d80a893a20354e9b7cde66c7d_c.jpg",
 						name:"习近平",
 						msg:"党的100大人民大会将在2021-04-01召开,请及时参加!!!",
 						last_time:"08:00",
-						unread_count:"1"
+						unread_count:1
 					}
 				]
 			}
 		},
 		methods: {
+			//切换内容
 			changeContent(val){
 				this.navActive = val
+			},
+			// 顶部导航栏下拉列表
+			drop(){
+				this.dropActive = !this.dropActive
+			},
+			// 顶部导航栏下拉列表点击事件
+			selectDrop(index){
+				console.log(index)
 			}
 		},
 		filters:{
@@ -204,17 +231,56 @@
 					return "未读"
 					
 				}
+			},
+			uReadHandle(val){
+				if(val>99){
+					return "99+"
+				}else{
+					return val
+				}
 			}
 		}
 	}
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 	.content{
 		width: 100%;
 		height: calc(100vh*0.92);
 		overflow: hidden;
 		background: #F5F5F5;
+		.mask{
+			display: flex;
+			flex-direction: row-reverse;
+			.t_drop_list{
+				margin-top: calc(100vh*0.075);
+				margin-right: 30rpx;
+				width: 30%;
+				height: 17%;
+				background: #FFFFFF;
+				border-radius: 20rpx;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				.d_item{
+					width: 80%;
+					height: 22%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 26rpx;
+					border-bottom: 1rpx solid #e0e0e0;
+					
+				}
+				.d_item:active{
+					background: #F8F8F8;
+				}
+				.d_item:nth-child(4){
+					border: none;
+				}
+			}
+		}
 		.navHead{
 			// border: 1px solid #007AFF;
 			width: 100%;
@@ -222,6 +288,22 @@
 			display: flex;
 			justify-content: center;
 			background: #FFFFFF;
+			position: relative;
+			.drop_icon{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				width: 30rpx;
+				height: 20rpx;
+				padding: 30rpx;
+				transition: transform 0.5s;
+				
+			}
+			.dropActive{
+				transform: rotate(180deg);
+			}
 			.navItem{
 				// border: 1px solid #2C405A;
 				width: 20%;
@@ -230,6 +312,7 @@
 				justify-content: center;
 				align-items: center;
 				margin: 0 40rpx;
+				position: relative;
 				.tit{
 					font-size: 36rpx;
 					margin: 0 15rpx;
@@ -335,7 +418,9 @@
 					background: #BFBCBC;
 				}
 			}
-		
+			.notice_item:active{
+				background-color: #eaeaea;
+			}
 			.empty{
 				width: 100%;
 				height: 20%;
@@ -366,23 +451,6 @@
 						justify-content: center;
 						align-items: center;
 						position: relative;
-						.prop{
-							position: absolute;
-							z-index: 222;
-							right: 0;
-							top: -10rpx;
-							background: red;
-							width: auto;
-							min-width: 32rpx;
-							min-height: 28rpx;
-							padding: 6rpx 6rpx;
-							border-radius: 50%;
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							font-size: 12rpx;
-							color: #FFFFFF;
-						}
 						.item_icon{
 							margin: 0 15rpx;
 							width: 50rpx;
@@ -454,10 +522,8 @@
 							color: #6A6A6A;
 						}
 						.msg_unread{
-							width: auto;
-							min-width: 32rpx;
-							min-height: 28rpx;
-							padding: 6rpx 6rpx;
+							width: 40rpx;
+							height: 40rpx;
 							border-radius: 50%;
 							display: flex;
 							justify-content: center;
@@ -467,7 +533,15 @@
 							color: #FFFFFF;
 							background: #FD706B;
 						}
+						.bp{
+							width: 70rpx;
+							height: 30rpx;
+							border-radius: 40rpx;
+						}
 					}
+				}
+				.new_item:active{
+					background-color: #eaeaea;
 				}
 			}
 		}
