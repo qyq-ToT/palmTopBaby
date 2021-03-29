@@ -129,10 +129,11 @@
 			.tip {
 				// border: 1px solid #007AFF;
 				width: 100%;
-				height: 10%;
+				// height: 10%;
 				display: flex;
 				align-items: center;
-				margin: 15rpx 0;
+				margin-top: 30rpx;
+				margin-bottom: 6rpx;
 
 				.tip_tit {
 					width: 25%;

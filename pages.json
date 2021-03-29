@@ -184,7 +184,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "幼儿园简介",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
             }
             
         }
@@ -212,6 +213,67 @@
             {
                 "navigationBarTitleText": "成 长 编 辑",
                 "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine_information/mine_information",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人信息",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine_school/mine_school",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的学校",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+            }
+            
+        }
+        ,{
+            "path" : "pages/courseDetails/courseDetails",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "课程详情",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+				
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine_monitor/mine_monitor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "视频监控",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+            }
+            
+        }
+        ,{
+            "path" : "pages/find_password/find_password",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
+            }
+            
+        }
+        ,{
+            "path" : "pages/set_password/set_password",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#FFFFFF"
             }
             
         }

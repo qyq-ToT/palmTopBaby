@@ -99,6 +99,7 @@
 			margin-top: 32rpx;
 			width: 60%;
 			height: 6%;
+			max-height: 36px;
 			padding: 10rpx 10rpx;
 			font-size: 40rpx;
 			color: #FFFFFF;

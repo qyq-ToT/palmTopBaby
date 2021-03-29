@@ -7,8 +7,8 @@
 		<view class="input_row">
 			<input @input="inum" class="i_num" type="number" placeholder="请输入手机号" />
 			<view class="code_row">
-				<input class="i_code" @input="ipwd" type="text" placeholder="验证码" />
-				<view class="code_state" @click="getUserInfo">验证码登陆</view>
+				<input class="i_code" @input="ipwd" type="text" placeholder="密码" />
+				<view :class="canSendCode?'':'noSend'" class="code_state" @click="sendCode">{{codeState}}</view>
 				<!-- <button class="code_state" @getuserinfo="getUserInfo()">验证码登陆</button> -->
 				<!-- <view class="code_state">30S后重新发送</view> -->
 			</view>
@@ -16,6 +16,15 @@
 			:class="(uphone_num=='' || upassword=='')?'disable':''"  @click="navtoIndex">登 陆</u-button>
 			<!-- {{res}} -->
 			<!-- {{res}} -->
+			<view class="input_bottom">
+				<view class="wexin">
+					<image src="../../static/wexin.png"></image>
+					<view class="tit">微信登陆</view>
+				</view>
+				<view class="cline"></view>
+				<!-- <navigator class="forget" @click="findPassword">忘记密码？</navigator> -->
+				<view @click="findPassword" class="forget">忘记密码？</view>
+			</view>
 		</view>
 		
 	</view>
@@ -28,7 +37,9 @@
 				logRes:"",
 				uphone_num:"",
 				upassword:"",
-				res:{}
+				res:{},
+				codeState:"验证码登陆",
+				canSendCode:true
 			};
 		},
 		methods:{
@@ -38,6 +49,22 @@
 			},
 			ipwd(e){
 				this.upassword = e.detail.value
+			},
+			sendCode(){
+				let second = 30
+				
+				let timer =  setInterval(()=>{
+					second = second - 1
+					this.codeState = second + "S后重新发送"
+					
+					if(second==0){
+						this.codeState = "验证码登陆"
+						clearInterval(timer)
+						this.canSendCode = true
+						console.log(123)
+					}
+				},1000)
+				setTimeout(()=>{this.canSendCode = false},1000)
 			},
 			getUserInfo(){
 				uni.getProvider({
@@ -68,6 +95,12 @@
 				//     }
 				// });
 			},
+			findPassword(){
+				uni.navigateTo({
+					animationType:"pop-in",
+					url:"../find_password/find_password"
+				})
+			}
 			
 		}
 	}
@@ -89,7 +122,6 @@
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				left: 40rpx;
 				margin: auto;
 				color: #FFFFFF;
 				font-size: 44rpx;
@@ -97,12 +129,13 @@
 				width: auto;
 				height: 60rpx;
 				letter-spacing: 6rpx;
+				text-indent: 2em;
 			}
 		}
 	
 		.input_row{
 			position: absolute;
-			top: 350rpx;
+			bottom: calc(-100vh*0.3);
 			left: 0;
 			right: 0;
 			margin: auto;
@@ -113,36 +146,42 @@
 			box-shadow: 0 0 5rpx 2rpx #C0C4CC;
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
+			// justify-content: center;
 			align-items: center;
 			.i_num{
 				width: 78%;
-				height: 20%;
+				height: 12%;
 				border-bottom: 1rpx solid #999999;
+				margin-top: 80rpx;
 			}
 			.code_row{
 				width: 78%;
-				height: 20%;
+				height: 12%;
 				border-bottom: 1rpx solid #999999;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				margin-bottom: 80rpx;
+				margin-top: 40rpx;
 				.i_code{
-					width: 32%;
+					width: 40%;
 					
 				}
 				.code_state{
 					// border: 1px solid #19BE6B;
-					width: 55%;
+					width: auto;
 					font-size: 24rpx;
 					text-align: end;
 					letter-spacing: 3rpx;
 					color: #FD756D;
 					// color: #CFCFCF;
 				}
+				.noSend{
+					pointer-events: none;
+					color: #cfcfcf;
+				}
 			}
 			.subBtn{
+				margin-top: 80rpx;
 				border-radius: 45rpx;
 				width: 68%;
 				height: 12%;
@@ -155,6 +194,41 @@
 			.disable{
 				background: #CFCFCF;
 				pointer-events: none;
+			}
+		
+			.input_bottom{
+				position: absolute;
+				bottom: 20rpx;
+				// border: 1px solid gold;
+				width: 76%;
+				height: 10%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.wexin{
+					flex: 1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					image{
+						width: 30rpx;
+						height: 30rpx;
+					}
+					.tit{
+						margin-left: 10rpx;
+					}
+				}
+				.cline{
+					width: 1rpx;
+					height: 80%;
+					background: #333333;
+				}
+				.forget{
+					flex: 1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
 			}
 		}
 		

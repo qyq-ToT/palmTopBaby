@@ -1,7 +1,5 @@
 <template>
 	<view class="content">
-		<view class=""></view>
-		<video src="https://apd-c723a51ac443dd08c6eb11bf3de33262.v.smtcdns.com/vweishi.tc.qq.com/A4twHb4uK8kvMfD3StAHIEIjTNFKRRRqg-wcHIONNyEo/j0864yax0ii.mp4?sdtfrom=v1010&guid=1e146e77d4280dcf14de5d40bb400209&vkey=038E0FBDC8682C2253A4499BD18A7268F403B26DCF35300DB5EE4497ED80E615572675315D072BB9550F74EF034D03E7A63CB9E87A4673DA492FB0AAF07A921C83239829E99171E7186EBA763DFAEAC1BAA156FFFACE907EDF74BF0FD0C2D01848F8BDB501D98AF4B9B59FCDCCE5C8C303D3010548F8373A92170CA9D17D01FE"></video>
 	</view>
 </template>
 
@@ -16,5 +14,11 @@
 </script>
 
 <style lang="scss">
-
+	.content{
+		width: 100%;
+		height: 100vh;
+		background-image: url('../../static/zbbg.png');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
 </style>
